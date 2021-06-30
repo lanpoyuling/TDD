@@ -10,7 +10,7 @@ import java.util.List;
  * @Date 6/29/2021 3:27 PM
  **/
 public class FizzBuzz {
-
+    public static final String NUMBER_MUST_GREATER_THAN_0 = "number must greater than 0";
     private static final String FIZZ_BUZZ = "FizzBuzz";
     private static final String FIZZ = "Fizz";
     private static final String BUZZ = "Buzz";
@@ -35,6 +35,7 @@ public class FizzBuzz {
      * @date 6/29/2021 4:50 PM
      */
     public String[] generate(int number) {
+        numberMustGreaterThanZero(number);
         String[] strings = new String[number];
         for (int i = 1; i <= number; i++) {
             strings[i - 1] = new FizzBuzz().of(i);
@@ -43,6 +44,7 @@ public class FizzBuzz {
     }
 
     public String of(int number) {
+        numberMustGreaterThanZero(number);
         FizzBuzz fizzBuzz = new FizzBuzz(number);
         if (fizzBuzz.canBeDivide(THREE) && fizzBuzz.canBeDivide(FIVE)) {
             return FIZZ_BUZZ;
@@ -56,11 +58,18 @@ public class FizzBuzz {
         return String.valueOf(number);
     }
 
+    private void numberMustGreaterThanZero(int number) {
+        if (number <= 0) {
+            throw new IllegalArgumentException(NUMBER_MUST_GREATER_THAN_0);
+        }
+    }
+
     private boolean canBeDivide(int i) {
         return this.number % i == 0;
     }
 
     public List<String> fizzBuzz(int n) {
+        numberMustGreaterThanZero(n);
         List<String> list = new ArrayList<>();
         for (int i = 1; i <= n; i++) {
             if (i % 3 == 0 && i % 5 == 0) {

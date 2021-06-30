@@ -1,5 +1,6 @@
 package com.example.tdd;
 
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @ClassName FizzBuzzTest
@@ -30,6 +32,13 @@ public class FizzBuzzTest {
     private static final String[] argumentsWhenNumberIsThree = {"1", "2", "Fizz"};
     private static final String[] argumentsWhenNumberIsFive = {"1", "2", "Fizz", "4", "Buzz"};
     private static final String[] argumentsWhenNumberIsFifteen = {"1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz", "11", "Fizz", "13", "14", "FizzBuzz"};
+
+    @Test
+    void when_given_zero_should_throw_exception() {
+        assertEquals(FizzBuzz.NUMBER_MUST_GREATER_THAN_0, assertThrows(IllegalArgumentException.class, () -> new FizzBuzz().of(0)).getMessage());
+        assertEquals(FizzBuzz.NUMBER_MUST_GREATER_THAN_0, assertThrows(IllegalArgumentException.class, () -> new FizzBuzz().generate(0)).getMessage());
+        assertEquals(FizzBuzz.NUMBER_MUST_GREATER_THAN_0, assertThrows(IllegalArgumentException.class, () -> new FizzBuzz().fizzBuzz(0)).getMessage());
+    }
 
     @ParameterizedTest
     @MethodSource("addFizzBuzzOfTestData")
@@ -59,7 +68,6 @@ public class FizzBuzzTest {
     }
 
     private static Stream<Arguments> addFizzBuzzGenerateTestData() {
-
         return Stream.of(
                 Arguments.of(argumentsWhenNumberIsOne, 1),
                 Arguments.of(argumentsWhenNumberIsThree, 3),
