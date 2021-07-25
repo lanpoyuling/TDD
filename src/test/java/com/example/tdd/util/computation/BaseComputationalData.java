@@ -1,4 +1,4 @@
-package com.example.tdd;
+package com.example.tdd.util.computation;
 
 import org.junit.jupiter.params.provider.Arguments;
 
@@ -6,12 +6,12 @@ import java.math.BigDecimal;
 import java.util.stream.Stream;
 
 /**
- * @ClassName BaseData
+ * @ClassName BaseComputationalData
  * @Description 基础数据
  * @Author 10932
  * @Date 7/25/2021 10:33 AM
  **/
-public interface BaseData {
+public interface BaseComputationalData {
     static Stream<Arguments> testMinusData() {
         return Stream.of(
                 Arguments.of(40, 340, 300),
