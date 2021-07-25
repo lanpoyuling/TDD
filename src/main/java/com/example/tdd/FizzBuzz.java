@@ -1,6 +1,5 @@
 package com.example.tdd;
 
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,9 +11,9 @@ import java.util.List;
  **/
 public class FizzBuzz {
     public static final String NUMBER_MUST_GREATER_THAN_0 = "number must greater than 0";
-    private static final String FIZZ_BUZZ = "FizzBuzz";
-    private static final String FIZZ = "Fizz";
-    private static final String BUZZ = "Buzz";
+    protected static final String FIZZ_BUZZ = "FizzBuzz";
+    protected static final String FIZZ = "Fizz";
+    protected static final String BUZZ = "Buzz";
     private static final int THREE = 3;
     private static final int FIVE = 5;
     private int number;
@@ -76,9 +75,9 @@ public class FizzBuzz {
             if (i % 3 == 0 && i % 5 == 0) {
                 list.add("FizzBuzz");
             } else if (i % 3 == 0) {
-                list.add("Fizz");
+                list.add(FIZZ);
             } else if (i % 5 == 0) {
-                list.add("Buzz");
+                list.add(BUZZ);
             } else {  //how to remove the else
                 list.add(String.valueOf(i));
             }
