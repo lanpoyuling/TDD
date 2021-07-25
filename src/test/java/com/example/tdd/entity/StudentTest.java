@@ -1,7 +1,7 @@
 package com.example.tdd.entity;
 
 import cn.hutool.json.JSONUtil;
-import com.example.tdd.EmptyUtil;
+import com.example.tdd.util.judgement.EmptyUtil;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
