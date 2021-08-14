@@ -39,7 +39,7 @@ public class HttpServerSingleThread {
             printWriter.println("Content-Type:text/html;charset=utf-8");
             String body = "hello,nio";
             printWriter.println("Content-Length:" + body.getBytes(StandardCharsets.UTF_8).length);
-            printWriter.println("\r");
+            printWriter.println("");
             printWriter.println(body);
         }
 
