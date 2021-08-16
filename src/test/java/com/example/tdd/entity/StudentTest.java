@@ -2,6 +2,8 @@ package com.example.tdd.entity;
 
 import cn.hutool.json.JSONUtil;
 import com.example.tdd.util.judgement.EmptyUtil;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -25,5 +27,16 @@ class StudentTest {
         student.setId(id);
         student.setName(name);
         return student;
+    }
+
+    @Test
+    void test_gson_serialize_null_filed() throws Exception {
+        GsonBuilder gsonBuilder = new GsonBuilder();
+        gsonBuilder.serializeNulls();
+        Gson gson = gsonBuilder.create();
+        Student student = buildStudent(0, null);
+        String s = gson.toJson(student);
+        System.err.println(s);
+
     }
 }
